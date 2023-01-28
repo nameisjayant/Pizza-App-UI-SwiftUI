@@ -8,42 +8,55 @@
 import SwiftUI
 
 struct ContentView: View {
+
+    @State var currentState = "Starters"
+    var lists = ["Starters","Asian","Placha & Roast & Gril","Classics","Indian","Italian"]
+    
     var body: some View {
         ZStack(alignment: .leading){
-           
-            VStack{
+    
+            VStack(){
                 HStack{
-                    HStack{
-                        HStack{
-                            Button{
-                            } label: {
-                                Image(systemName: "list.bullet.indent")
-                                    .resizable()
-                                    .foregroundColor(.white)
-                                    .frame(width: 20,height: 20)
-                            }
-                            Text("Jayant Kumar")
-                                .foregroundColor(.white)
-                                .font(.title3)
-                                .fontWeight(.semibold)
-                                .padding(.leading,15)
-                                
-                        }
-                        Spacer()
-                        Button{
-                        }label: {
-                            Image(systemName: "magnifyingglass")
-                                .resizable()
-                                .foregroundColor(.white)
-                                .frame(width: 20,height: 20)
-                        }
-                        }
-                    }.padding(20)
+                    HeaderView()
                 }.background(.red)
+                ScrollView(.horizontal,showsIndicators: false){
+                    HStack{
+                        ForEach(lists,id: \.self){data in
+                            CustomChipView(
+                                selected: data == currentState, title: data){value in
+                                    currentState = value
+                                }
+                        }
+                    }.frame(maxWidth: .infinity,alignment: .leading)
+                        .padding(15)
+                }
             }
-        .frame(maxWidth: .infinity,maxHeight: .infinity,alignment: .topLeading)
+            }.frame(maxWidth: .infinity,maxHeight: .infinity,alignment: .topLeading)
     }
 }
+
+
+struct CustomChipView : View {
+    var selected:Bool
+    var title:String
+    var onValueChange : (String)->Void
+    var body: some View{
+        Button{
+            onValueChange(title)
+        } label: {
+            Text(title)
+                .padding(15)
+                .foregroundColor(selected ? .white : .black)
+                .fontWeight(.medium)
+                .font(.title3)
+                .background(selected ? .red : .white)
+                .cornerRadius(25)
+                .padding(.trailing,10)
+                
+        }
+    }
+}
+
 
 
 struct ContentView_Previews: PreviewProvider {
@@ -51,3 +64,35 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+struct HeaderView : View{
+    var body: some View{
+            HStack{
+                HStack{
+                    Button{
+                    } label: {
+                        Image("menu")
+                            .resizable()
+                            .foregroundColor(.white)
+                            .frame(width: 28,height: 28)
+                    }
+                    Text("Jayant Kumar")
+                        .foregroundColor(.white)
+                        .font(.title3)
+                        .fontWeight(.semibold)
+                        .padding(.leading,15)
+                        
+                }
+                Spacer()
+                Button{
+                }label: {
+                    Image(systemName: "magnifyingglass")
+                        .resizable()
+                        .foregroundColor(.white)
+                        .frame(width: 28,height: 28)
+                    
+                }
+                }.padding(20)
+    }
+}
+
