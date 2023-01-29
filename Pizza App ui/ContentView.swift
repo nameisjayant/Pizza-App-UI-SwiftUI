@@ -30,8 +30,58 @@ struct ContentView: View {
                     }.frame(maxWidth: .infinity,alignment: .leading)
                         .padding(15)
                 }
+                Grid {
+                    GridRow {
+                        ForEach(0..<2) { _ in
+                            ShowPizzaView()
+                        }
+                    }
+                    GridRow {
+                        ForEach(0..<2) { _ in
+                            ShowPizzaView()
+                        }
+                    }
+                }
             }
             }.frame(maxWidth: .infinity,maxHeight: .infinity,alignment: .topLeading)
+    }
+}
+
+struct ShowPizzaView : View {
+    var body: some View{
+        ZStack{
+            RoundedRectangle(cornerRadius: 5, style: .continuous)
+                           .fill(.white)
+            
+            VStack{
+                Image("pizza")
+                    .resizable()
+                    .frame(width:109,height: 109)
+                Text("£14.25")
+                    .foregroundColor(.red)
+                    .font(.title2)
+                    .fontWeight(.medium)
+                Text("Fresh Farm House")
+                    .foregroundColor(.black)
+                    .font(.title2)
+                    .fontWeight(.medium)
+                Text("crisp capsicum, succulent mushrooms and fresh tomatoes")
+                    .foregroundColor(.gray)
+                    .font(.subheadline)
+                    .fontWeight(.regular)
+                    .multilineTextAlignment(.center)
+                Button{}label: {
+                    Text("Add")
+                        .padding(5)
+                        .frame(maxWidth: 91)
+                        .font(.title3)
+                        .fontWeight(.medium)
+                        
+                }.buttonStyle(.borderedProminent)
+                    .tint(.orange)
+                
+            }.padding(5)
+        }.padding(5)
     }
 }
 
@@ -54,14 +104,6 @@ struct CustomChipView : View {
                 .padding(.trailing,10)
                 
         }
-    }
-}
-
-
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
     }
 }
 
@@ -90,9 +132,14 @@ struct HeaderView : View{
                         .resizable()
                         .foregroundColor(.white)
                         .frame(width: 28,height: 28)
-                    
                 }
                 }.padding(20)
     }
 }
 
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
