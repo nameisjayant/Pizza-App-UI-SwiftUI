@@ -57,6 +57,7 @@ struct FloatingButtonView : View{
             HStack{
                 Text("£60.40")
                     .foregroundColor(.white)
+                    .fontWeight(.semibold)
                 Image("pizza")
                     .resizable()
                     .frame(width: 42,height: 42)
