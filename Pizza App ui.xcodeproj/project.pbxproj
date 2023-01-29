@@ -13,7 +13,6 @@
 		F55D47132984FA65001EE3A8 /* Pizza_App_uiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55D47122984FA65001EE3A8 /* Pizza_App_uiTests.swift */; };
 		F55D471D2984FA65001EE3A8 /* Pizza_App_uiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55D471C2984FA65001EE3A8 /* Pizza_App_uiUITests.swift */; };
 		F55D471F2984FA65001EE3A8 /* Pizza_App_uiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55D471E2984FA65001EE3A8 /* Pizza_App_uiUITestsLaunchTests.swift */; };
-		F55D472E29854300001EE3A8 /* one.png in Resources */ = {isa = PBXBuildFile; fileRef = F55D472D29854300001EE3A8 /* one.png */; };
 		F55D473029854395001EE3A8 /* PizzaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55D472F29854395001EE3A8 /* PizzaView.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,7 +43,6 @@
 		F55D47182984FA65001EE3A8 /* Pizza App uiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pizza App uiUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F55D471C2984FA65001EE3A8 /* Pizza_App_uiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pizza_App_uiUITests.swift; sourceTree = "<group>"; };
 		F55D471E2984FA65001EE3A8 /* Pizza_App_uiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pizza_App_uiUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		F55D472D29854300001EE3A8 /* one.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = one.png; path = ../../../../Desktop/one.png; sourceTree = "<group>"; };
 		F55D472F29854395001EE3A8 /* PizzaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,7 +74,6 @@
 		F55D46F52984FA63001EE3A8 = {
 			isa = PBXGroup;
 			children = (
-				F55D472C298542C7001EE3A8 /* screenshots */,
 				F55D47002984FA63001EE3A8 /* Pizza App ui */,
 				F55D47112984FA65001EE3A8 /* Pizza App uiTests */,
 				F55D471B2984FA65001EE3A8 /* Pizza App uiUITests */,
@@ -128,14 +125,6 @@
 				F55D471E2984FA65001EE3A8 /* Pizza_App_uiUITestsLaunchTests.swift */,
 			);
 			path = "Pizza App uiUITests";
-			sourceTree = "<group>";
-		};
-		F55D472C298542C7001EE3A8 /* screenshots */ = {
-			isa = PBXGroup;
-			children = (
-				F55D472D29854300001EE3A8 /* one.png */,
-			);
-			path = screenshots;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,7 +231,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F55D472E29854300001EE3A8 /* one.png in Resources */,
 				F55D47092984FA65001EE3A8 /* Preview Assets.xcassets in Resources */,
 				F55D47062984FA65001EE3A8 /* Assets.xcassets in Resources */,
 			);
