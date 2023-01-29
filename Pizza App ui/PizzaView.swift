@@ -12,6 +12,7 @@ struct ContentView: View {
 
     @State var currentState = "Starters"
     var lists = ["Starters","Asian","Placha & Roast & Gril","Classics","Indian","Italian"]
+    let data = (1...10)
     
     var body: some View {
         ZStack(alignment: .leading){
@@ -31,15 +32,39 @@ struct ContentView: View {
                     }.frame(maxWidth: .infinity,alignment: .leading)
                         .padding(15)
                 }
-                Grid() {
-                    GridRow {
-                        ShowPizzView()
-                        ShowPizzView()
+                ScrollView{
+                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 128))],spacing: 0){
+                        ForEach(data,id: \.self){item in
+                            ShowPizzView()
+                        }
                     }
                 }
             }
+            HStack{
+                FloatingButtonView()
+            }.frame(maxWidth: .infinity,maxHeight: .infinity,alignment: .bottomTrailing)
+                .padding(30)
             }.frame(maxWidth: .infinity,maxHeight: .infinity,alignment: .topLeading)
             .background(Color(hex: 0xFFF1F1F1))
+    }
+}
+
+struct FloatingButtonView : View{
+    var body: some View{
+        Button{
+            
+        }label: {
+            HStack{
+                Text("£60.40")
+                    .foregroundColor(.white)
+                Image("pizza")
+                    .resizable()
+                    .frame(width: 42,height: 42)
+                    .cornerRadius(16)
+            }.padding(5)
+        }.buttonStyle(.borderedProminent)
+            .cornerRadius(27)
+            .tint(.black)
     }
 }
 
@@ -50,7 +75,8 @@ struct ShowPizzView :View{
                 .background(.white)
                 .foregroundColor(.white)
                 .cornerRadius(10)
-                .padding()
+                .padding(8)
+            
             VStack(alignment : .center){
                 Image("pizza")
                     .resizable()
@@ -62,7 +88,7 @@ struct ShowPizzView :View{
                     .font(.headline)
                     .multilineTextAlignment(.center)
                     .padding(.vertical,1)
-                Text("crisp capsicum, succulent mushrooms and fresh tomatoes")
+                Text("crisp capsicum, succulent")
                     .multilineTextAlignment(.center)
                     .font(.caption)
                     .foregroundColor(.gray)
@@ -79,7 +105,7 @@ struct ShowPizzView :View{
                     .tint(.red)
 
             }.padding(.horizontal,10)
-        }.frame(width: 230,height: 310)
+        }.frame(width: 200,height: 310)
     }
 }
 
